@@ -127,4 +127,19 @@ public class OwnerSteps {
 		site.ownerDetails.checkTelephone(telephone);
 	}
 
+	@Given("el veterinario está en la página de búsqueda de dueños de mascotas")
+	public void goToFindOwner() {
+		site.navBar.findOwners();
+	}
+
+	@When("el veterinario hace clic en el botón Find Owner")
+	public void findOwner() {
+		site.ownerList.findOwner();
+	}
+
+	@Then("el sistema debería dirigir a la pantalla de detalles del dueño de mascota")
+	public void owmerInfoCheckTitle() {
+		site.navBar.checkTitle(OWNER_DETAILS_TITLE);
+	}
+
 }
