@@ -71,8 +71,8 @@ public class OwnerForm {
 		final String[] strings = lbl != null ? lbl.split(" ") : new String[] { "" };
 		return strings[0].toLowerCase() + Arrays.stream(strings, 1, strings.length).collect(Collectors.joining());
 	}
-	
-	/* agregados para que eliminen el contenido antes del seteo. */ 
+
+	/* agregados para que eliminen el contenido antes del seteo. */
 
 	public void putCity(String value) {
 		this.browser.put(FIELD_CITY, value);
@@ -81,4 +81,5 @@ public class OwnerForm {
 	public void putTelephone(String value) {
 		this.browser.put(FIELD_TELEPHONE, value);
 	}
+
 }

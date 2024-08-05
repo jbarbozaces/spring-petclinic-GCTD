@@ -12,9 +12,9 @@ public class OwnerList {
 	private static String BTN_FIND_OWNER = "xpath://button[contains(normalize-space(text()), 'Find Owner')]";
 
 	private static String BTN_ADD_OWNER = "xpath://a[contains(normalize-space(text()), 'Add Owner')]";
-	
+
 	private static String BTN_EDIT_OWNER = "xpath://a[contains(normalize-space(text()), 'Edit Owner')]";
-	
+
 	private static String BTN_UPDATE_OWNER = "xpath://button[contains(normalize-space(text()), 'Update Owner')]";
 
 	private final Browser browser;
@@ -39,7 +39,7 @@ public class OwnerList {
 	public void editOwner() {
 		this.browser.click(BTN_EDIT_OWNER);
 	}
-	
+
 	public void updateOwner() {
 		this.browser.click(BTN_UPDATE_OWNER);
 	}
