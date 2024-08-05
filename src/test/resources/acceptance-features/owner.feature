@@ -59,7 +59,7 @@ Feature: Registro de Dueños de Mascotas
     And el veterinario reescribe "2321020399" en el campo Telephone
     And el veterinario hace clic en el botón Update Owner
     Then el sistema debería dirigir a la pantalla de detalles del dueño de mascota
-    And muestra el texto "George" en el campo Name
+    And muestra el texto "George Franklin" en el campo Name
     And muestra el texto "110 W. Liberty St." en el campo Address
     And muestra el texto "Montevideo" en el campo City
 	And muestra el texto "2321020399" en el campo Telephone
