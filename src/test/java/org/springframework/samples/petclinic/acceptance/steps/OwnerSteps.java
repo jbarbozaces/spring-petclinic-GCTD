@@ -141,5 +141,31 @@ public class OwnerSteps {
 	public void owmerInfoCheckTitle() {
 		site.navBar.checkTitle(OWNER_DETAILS_TITLE);
 	}
+	
+	// casos agregados...
 
+	@Then("el veterinario hace clic en el botón Edit Owner")
+	public void editOwner() {
+		site.ownerList.editOwner();
+	}
+
+	@Then("el sistema debería dirigir a la pantalla de edición de información del dueño de mascota")
+	public void owmerEditTitle() {
+		site.navBar.checkTitle(OWNER_FORM_TITLE);
+	}
+	
+	@Then("el veterinario hace clic en el botón Update Owner")
+	public void updateOwner() {
+		site.ownerList.updateOwner();
+	}
+	
+	@Then("el veterinario reescribe {string} en el campo City")
+	public void putCity(String city) {
+		site.ownerForm.putCity(city);
+	}
+
+	@Then("el veterinario reescribe {string} en el campo Telephone")
+	public void putTelephone(String telephone) {
+		site.ownerForm.putTelephone(telephone);
+	}
 }

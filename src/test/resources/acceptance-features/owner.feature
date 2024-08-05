@@ -1,14 +1,18 @@
 Feature: Registro de Dueños de Mascotas
 
-  Scenario: Buscar un dueño de mascota por apellido
+  Scenario Outline: Buscar un dueño de mascota por apellido
     Given el veterinario está en la página de búsqueda de dueños de mascotas
-    When el veterinario ingresa "Rodriquez" en el campo Last Name
+    When el veterinario ingresa "<Last Name>" en el campo Last Name
     And el veterinario hace clic en el botón Find Owner
     Then el sistema debería dirigir a la pantalla de detalles del dueño de mascota
-    And muestra el texto "Eduardo Rodriquez" en el campo Name
-    And muestra el texto "2693 Commerce St." en el campo Address
-    And muestra el texto "McFarland" en el campo City
-	And muestra el texto "6085558763" en el campo Telephone
+    And muestra el texto "<Name>" en el campo Name
+    And muestra el texto "<Address>" en el campo Address
+    And muestra el texto "<City>" en el campo City
+	And muestra el texto "<Telephone>" en el campo Telephone
+	
+	Examples:
+	  | Name				| Last Name 	| Address     		| City      | Telephone  |
+	  | Eduardo Rodriquez 	| Rodriquez		| 2693 Commerce St. | McFarland | 6085558763 |
 
   Scenario: Registrar un dueño de mascota con todos los datos válidos
     Given el veterinario está en la página de registro de dueños de mascotas
@@ -43,3 +47,19 @@ Feature: Registro de Dueños de Mascotas
       | John       | Doe       | 123 Main St | Springfield |             | Telephone   | no debe estar vacío                 |
       | John       | Doe       | 123 Main St | Springfield | 12345       | Telephone   | Telephone must be a 10-digit number |
       | John       | Doe       | 123 Main St | Springfield | abcdefghij  | Telephone   | Telephone must be a 10-digit number |
+
+  Scenario Outline: Editar la información de un dueño de mascota
+  	Given el veterinario está en la página de búsqueda de dueños de mascotas
+  	When el veterinario ingresa "Franklin" en el campo Last Name
+    And el veterinario hace clic en el botón Find Owner
+    Then el sistema debería dirigir a la pantalla de detalles del dueño de mascota
+    And el veterinario hace clic en el botón Edit Owner
+    Then el sistema debería dirigir a la pantalla de edición de información del dueño de mascota
+    And el veterinario reescribe "Montevideo" en el campo City
+    And el veterinario reescribe "2321020399" en el campo Telephone
+    And el veterinario hace clic en el botón Update Owner
+    Then el sistema debería dirigir a la pantalla de detalles del dueño de mascota
+    And muestra el texto "George" en el campo Name
+    And muestra el texto "110 W. Liberty St." en el campo Address
+    And muestra el texto "Montevideo" en el campo City
+	And muestra el texto "2321020399" en el campo Telephone

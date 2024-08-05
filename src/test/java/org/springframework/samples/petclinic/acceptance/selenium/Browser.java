@@ -147,6 +147,13 @@ public class Browser {
 	public void write(String selector, String value, Object... params) {
 		find(selector, params).sendKeys(value);
 	}
+	
+	
+	public void put(String selector, String value, Object... params) {
+		find(selector, params).clear();
+		find(selector, params).sendKeys(value);
+	}
+
 
 	/**
 	 * Realiza click en el elemento ubicado con selector
